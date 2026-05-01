@@ -36,10 +36,7 @@ export type Grade = (typeof Grade)[keyof typeof Grade]
 export const Location: {
   Baskhari: 'Baskhari',
   Tanda: 'Tanda',
-  Nyori: 'Nyori',
-  Hyderabad: 'Hyderabad',
-  Pune: 'Pune',
-  Online: 'Online'
+  Nyori: 'Nyori'
 };
 
 export type Location = (typeof Location)[keyof typeof Location]
@@ -50,8 +47,7 @@ export const Subject: {
   Physics: 'Physics',
   Chemistry: 'Chemistry',
   Biology: 'Biology',
-  English: 'English',
-  ComputerScience: 'ComputerScience'
+  Science: 'Science'
 };
 
 export type Subject = (typeof Subject)[keyof typeof Subject]

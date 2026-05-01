@@ -20,9 +20,6 @@ enum Location {
   Baskhari
   Tanda
   Nyori
-  Hyderabad
-  Pune
-  Online
 }
 
 enum Subject {
@@ -30,8 +27,7 @@ enum Subject {
   Physics
   Chemistry
   Biology
-  English
-  ComputerScience @map("Computer Science")
+  Science
 }
 
 model Registration {

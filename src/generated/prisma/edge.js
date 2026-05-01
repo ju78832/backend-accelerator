@@ -127,10 +127,7 @@ exports.Grade = exports.$Enums.Grade = {
 exports.Location = exports.$Enums.Location = {
   Baskhari: 'Baskhari',
   Tanda: 'Tanda',
-  Nyori: 'Nyori',
-  Hyderabad: 'Hyderabad',
-  Pune: 'Pune',
-  Online: 'Online'
+  Nyori: 'Nyori'
 };
 
 exports.Subject = exports.$Enums.Subject = {
@@ -138,8 +135,7 @@ exports.Subject = exports.$Enums.Subject = {
   Physics: 'Physics',
   Chemistry: 'Chemistry',
   Biology: 'Biology',
-  English: 'English',
-  ComputerScience: 'ComputerScience'
+  Science: 'Science'
 };
 
 exports.Prisma.ModelName = {
@@ -184,7 +180,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -193,13 +188,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator client {\n  provider   = \"prisma-client-js\"\n  output     = \"../src/generated/prisma\"\n  engineType = \"binary\"\n}\n\nenum Grade {\n  G9  @map(\"9\")\n  G10 @map(\"10\")\n  G11 @map(\"11\")\n  G12 @map(\"12\")\n}\n\nenum Location {\n  Baskhari\n  Tanda\n  Nyori\n  Hyderabad\n  Pune\n  Online\n}\n\nenum Subject {\n  Mathematics\n  Physics\n  Chemistry\n  Biology\n  English\n  ComputerScience @map(\"Computer Science\")\n}\n\nmodel Registration {\n  id        String    @id @default(uuid())\n  fullName  String\n  email     String    @unique\n  phone     String\n  grade     Grade\n  location  Location\n  subjects  Subject[] // Supported natively in PostgreSQL\n  address   String\n  message   String?\n  createdAt DateTime  @default(now())\n\n  @@map(\"registrations\")\n}\n",
-  "inlineSchemaHash": "67e17c378cf85541aca40555c357b80d173d25c48b0cec22ad96f06c36a4c077",
+  "inlineSchema": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator client {\n  provider   = \"prisma-client-js\"\n  output     = \"../src/generated/prisma\"\n  engineType = \"binary\"\n}\n\nenum Grade {\n  G9  @map(\"9\")\n  G10 @map(\"10\")\n  G11 @map(\"11\")\n  G12 @map(\"12\")\n}\n\nenum Location {\n  Baskhari\n  Tanda\n  Nyori\n}\n\nenum Subject {\n  Mathematics\n  Physics\n  Chemistry\n  Biology\n  Science\n}\n\nmodel Registration {\n  id        String    @id @default(uuid())\n  fullName  String\n  email     String    @unique\n  phone     String\n  grade     Grade\n  location  Location\n  subjects  Subject[] // Supported natively in PostgreSQL\n  address   String\n  message   String?\n  createdAt DateTime  @default(now())\n\n  @@map(\"registrations\")\n}\n",
+  "inlineSchemaHash": "ca0b28375d762b5a138cfd6dbffe76b05cbb70671dc26aefc266ed856fd71f8d",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Registration\":{\"dbName\":\"registrations\",\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"uuid(4)\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"fullName\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"email\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"phone\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"grade\",\"kind\":\"enum\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Grade\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"location\",\"kind\":\"enum\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Location\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"subjects\",\"kind\":\"enum\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Subject\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"address\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"message\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":false,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"DateTime\",\"default\":{\"name\":\"now\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false}},\"enums\":{\"Grade\":{\"values\":[{\"name\":\"G9\",\"dbName\":\"9\"},{\"name\":\"G10\",\"dbName\":\"10\"},{\"name\":\"G11\",\"dbName\":\"11\"},{\"name\":\"G12\",\"dbName\":\"12\"}],\"dbName\":null},\"Location\":{\"values\":[{\"name\":\"Baskhari\",\"dbName\":null},{\"name\":\"Tanda\",\"dbName\":null},{\"name\":\"Nyori\",\"dbName\":null},{\"name\":\"Hyderabad\",\"dbName\":null},{\"name\":\"Pune\",\"dbName\":null},{\"name\":\"Online\",\"dbName\":null}],\"dbName\":null},\"Subject\":{\"values\":[{\"name\":\"Mathematics\",\"dbName\":null},{\"name\":\"Physics\",\"dbName\":null},{\"name\":\"Chemistry\",\"dbName\":null},{\"name\":\"Biology\",\"dbName\":null},{\"name\":\"English\",\"dbName\":null},{\"name\":\"ComputerScience\",\"dbName\":\"Computer Science\"}],\"dbName\":null}},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Registration\":{\"dbName\":\"registrations\",\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"uuid(4)\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"fullName\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"email\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"phone\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"grade\",\"kind\":\"enum\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Grade\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"location\",\"kind\":\"enum\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Location\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"subjects\",\"kind\":\"enum\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Subject\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"address\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"message\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":false,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"DateTime\",\"default\":{\"name\":\"now\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false}},\"enums\":{\"Grade\":{\"values\":[{\"name\":\"G9\",\"dbName\":\"9\"},{\"name\":\"G10\",\"dbName\":\"10\"},{\"name\":\"G11\",\"dbName\":\"11\"},{\"name\":\"G12\",\"dbName\":\"12\"}],\"dbName\":null},\"Location\":{\"values\":[{\"name\":\"Baskhari\",\"dbName\":null},{\"name\":\"Tanda\",\"dbName\":null},{\"name\":\"Nyori\",\"dbName\":null}],\"dbName\":null},\"Subject\":{\"values\":[{\"name\":\"Mathematics\",\"dbName\":null},{\"name\":\"Physics\",\"dbName\":null},{\"name\":\"Chemistry\",\"dbName\":null},{\"name\":\"Biology\",\"dbName\":null},{\"name\":\"Science\",\"dbName\":null}],\"dbName\":null}},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = undefined
 

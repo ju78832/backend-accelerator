@@ -19,21 +19,13 @@ const registrationSchema = z.object({
   grade: z.enum(["9", "10", "11", "12"], { message: "Select a grade" }),
   subjects: z
     .array(
-      z.enum([
-        "Mathematics",
-        "Physics",
-        "Chemistry",
-        "Biology",
-        "English",
-        "Computer Science",
-      ]),
+      z.enum(["Mathematics", "Physics", "Chemistry", "Biology", "Science"]),
     )
     .min(1, "Select at least one subject"),
   address: z.string().trim().min(5, "Please enter your address").max(300),
-  location: z.enum(
-    ["Baskhari", "Tanda", "Nyori", "Hyderabad", "Pune", "Online"],
-    { message: "Select a location" },
-  ),
+  location: z.enum(["Baskhari", "Tanda", "Nyori"], {
+    message: "Select a location",
+  }),
   message: z.string().trim().max(500).optional().nullable(),
 });
 
@@ -78,9 +70,7 @@ app.post("/api/register", async (req: Request, res: Response) => {
 
     // Map string values to their respective Database Enums where mapped
     const gradeMapped = `G${grade}` as "G9" | "G10" | "G11" | "G12";
-    const subjectsMapped = subjects.map((s) =>
-      s === "Computer Science" ? "ComputerScience" : s,
-    );
+    const subjectsMapped = subjects.map((s) => s);
 
     // Save to PostgreSQL via Prisma
     const registration = await prisma.registration.create({

@@ -159,10 +159,7 @@ exports.Grade = exports.$Enums.Grade = {
 exports.Location = exports.$Enums.Location = {
   Baskhari: 'Baskhari',
   Tanda: 'Tanda',
-  Nyori: 'Nyori',
-  Hyderabad: 'Hyderabad',
-  Pune: 'Pune',
-  Online: 'Online'
+  Nyori: 'Nyori'
 };
 
 exports.Subject = exports.$Enums.Subject = {
@@ -170,8 +167,7 @@ exports.Subject = exports.$Enums.Subject = {
   Physics: 'Physics',
   Chemistry: 'Chemistry',
   Biology: 'Biology',
-  English: 'English',
-  ComputerScience: 'ComputerScience'
+  Science: 'Science'
 };
 
 exports.Prisma.ModelName = {
