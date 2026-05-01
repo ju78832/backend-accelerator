@@ -59,7 +59,7 @@ app.post("/api/register", async (req: Request, res: Response) => {
 
     // Check if the email has already registered
     const existingRegistration = await prisma.registration.findUnique({
-      where: { email },
+      where: { phone }, // Assuming phone number is unique for registration. Change to email if email should be unique.
     });
 
     if (existingRegistration) {
@@ -76,7 +76,6 @@ app.post("/api/register", async (req: Request, res: Response) => {
     const registration = await prisma.registration.create({
       data: {
         fullName,
-        email,
         phone,
         grade: gradeMapped,
         location,

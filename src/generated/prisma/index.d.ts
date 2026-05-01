@@ -903,7 +903,6 @@ export namespace Prisma {
   export type RegistrationMinAggregateOutputType = {
     id: string | null
     fullName: string | null
-    email: string | null
     phone: string | null
     grade: $Enums.Grade | null
     location: $Enums.Location | null
@@ -915,7 +914,6 @@ export namespace Prisma {
   export type RegistrationMaxAggregateOutputType = {
     id: string | null
     fullName: string | null
-    email: string | null
     phone: string | null
     grade: $Enums.Grade | null
     location: $Enums.Location | null
@@ -927,7 +925,6 @@ export namespace Prisma {
   export type RegistrationCountAggregateOutputType = {
     id: number
     fullName: number
-    email: number
     phone: number
     grade: number
     location: number
@@ -942,7 +939,6 @@ export namespace Prisma {
   export type RegistrationMinAggregateInputType = {
     id?: true
     fullName?: true
-    email?: true
     phone?: true
     grade?: true
     location?: true
@@ -954,7 +950,6 @@ export namespace Prisma {
   export type RegistrationMaxAggregateInputType = {
     id?: true
     fullName?: true
-    email?: true
     phone?: true
     grade?: true
     location?: true
@@ -966,7 +961,6 @@ export namespace Prisma {
   export type RegistrationCountAggregateInputType = {
     id?: true
     fullName?: true
-    email?: true
     phone?: true
     grade?: true
     location?: true
@@ -1052,7 +1046,6 @@ export namespace Prisma {
   export type RegistrationGroupByOutputType = {
     id: string
     fullName: string
-    email: string
     phone: string
     grade: $Enums.Grade
     location: $Enums.Location
@@ -1082,7 +1075,6 @@ export namespace Prisma {
   export type RegistrationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     fullName?: boolean
-    email?: boolean
     phone?: boolean
     grade?: boolean
     location?: boolean
@@ -1095,7 +1087,6 @@ export namespace Prisma {
   export type RegistrationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     fullName?: boolean
-    email?: boolean
     phone?: boolean
     grade?: boolean
     location?: boolean
@@ -1108,7 +1099,6 @@ export namespace Prisma {
   export type RegistrationSelectScalar = {
     id?: boolean
     fullName?: boolean
-    email?: boolean
     phone?: boolean
     grade?: boolean
     location?: boolean
@@ -1125,7 +1115,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       fullName: string
-      email: string
       phone: string
       grade: $Enums.Grade
       location: $Enums.Location
@@ -1528,7 +1517,6 @@ export namespace Prisma {
   interface RegistrationFieldRefs {
     readonly id: FieldRef<"Registration", 'String'>
     readonly fullName: FieldRef<"Registration", 'String'>
-    readonly email: FieldRef<"Registration", 'String'>
     readonly phone: FieldRef<"Registration", 'String'>
     readonly grade: FieldRef<"Registration", 'Grade'>
     readonly location: FieldRef<"Registration", 'Location'>
@@ -1841,7 +1829,6 @@ export namespace Prisma {
   export const RegistrationScalarFieldEnum: {
     id: 'id',
     fullName: 'fullName',
-    email: 'email',
     phone: 'phone',
     grade: 'grade',
     location: 'location',
@@ -1976,7 +1963,6 @@ export namespace Prisma {
     NOT?: RegistrationWhereInput | RegistrationWhereInput[]
     id?: StringFilter<"Registration"> | string
     fullName?: StringFilter<"Registration"> | string
-    email?: StringFilter<"Registration"> | string
     phone?: StringFilter<"Registration"> | string
     grade?: EnumGradeFilter<"Registration"> | $Enums.Grade
     location?: EnumLocationFilter<"Registration"> | $Enums.Location
@@ -1989,7 +1975,6 @@ export namespace Prisma {
   export type RegistrationOrderByWithRelationInput = {
     id?: SortOrder
     fullName?: SortOrder
-    email?: SortOrder
     phone?: SortOrder
     grade?: SortOrder
     location?: SortOrder
@@ -2001,24 +1986,22 @@ export namespace Prisma {
 
   export type RegistrationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    email?: string
+    phone?: string
     AND?: RegistrationWhereInput | RegistrationWhereInput[]
     OR?: RegistrationWhereInput[]
     NOT?: RegistrationWhereInput | RegistrationWhereInput[]
     fullName?: StringFilter<"Registration"> | string
-    phone?: StringFilter<"Registration"> | string
     grade?: EnumGradeFilter<"Registration"> | $Enums.Grade
     location?: EnumLocationFilter<"Registration"> | $Enums.Location
     subjects?: EnumSubjectNullableListFilter<"Registration">
     address?: StringFilter<"Registration"> | string
     message?: StringNullableFilter<"Registration"> | string | null
     createdAt?: DateTimeFilter<"Registration"> | Date | string
-  }, "id" | "email">
+  }, "id" | "phone">
 
   export type RegistrationOrderByWithAggregationInput = {
     id?: SortOrder
     fullName?: SortOrder
-    email?: SortOrder
     phone?: SortOrder
     grade?: SortOrder
     location?: SortOrder
@@ -2037,7 +2020,6 @@ export namespace Prisma {
     NOT?: RegistrationScalarWhereWithAggregatesInput | RegistrationScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Registration"> | string
     fullName?: StringWithAggregatesFilter<"Registration"> | string
-    email?: StringWithAggregatesFilter<"Registration"> | string
     phone?: StringWithAggregatesFilter<"Registration"> | string
     grade?: EnumGradeWithAggregatesFilter<"Registration"> | $Enums.Grade
     location?: EnumLocationWithAggregatesFilter<"Registration"> | $Enums.Location
@@ -2050,7 +2032,6 @@ export namespace Prisma {
   export type RegistrationCreateInput = {
     id?: string
     fullName: string
-    email: string
     phone: string
     grade: $Enums.Grade
     location: $Enums.Location
@@ -2063,7 +2044,6 @@ export namespace Prisma {
   export type RegistrationUncheckedCreateInput = {
     id?: string
     fullName: string
-    email: string
     phone: string
     grade: $Enums.Grade
     location: $Enums.Location
@@ -2076,7 +2056,6 @@ export namespace Prisma {
   export type RegistrationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     grade?: EnumGradeFieldUpdateOperationsInput | $Enums.Grade
     location?: EnumLocationFieldUpdateOperationsInput | $Enums.Location
@@ -2089,7 +2068,6 @@ export namespace Prisma {
   export type RegistrationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     grade?: EnumGradeFieldUpdateOperationsInput | $Enums.Grade
     location?: EnumLocationFieldUpdateOperationsInput | $Enums.Location
@@ -2102,7 +2080,6 @@ export namespace Prisma {
   export type RegistrationCreateManyInput = {
     id?: string
     fullName: string
-    email: string
     phone: string
     grade: $Enums.Grade
     location: $Enums.Location
@@ -2115,7 +2092,6 @@ export namespace Prisma {
   export type RegistrationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     grade?: EnumGradeFieldUpdateOperationsInput | $Enums.Grade
     location?: EnumLocationFieldUpdateOperationsInput | $Enums.Location
@@ -2128,7 +2104,6 @@ export namespace Prisma {
   export type RegistrationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     grade?: EnumGradeFieldUpdateOperationsInput | $Enums.Grade
     location?: EnumLocationFieldUpdateOperationsInput | $Enums.Location
@@ -2209,7 +2184,6 @@ export namespace Prisma {
   export type RegistrationCountOrderByAggregateInput = {
     id?: SortOrder
     fullName?: SortOrder
-    email?: SortOrder
     phone?: SortOrder
     grade?: SortOrder
     location?: SortOrder
@@ -2222,7 +2196,6 @@ export namespace Prisma {
   export type RegistrationMaxOrderByAggregateInput = {
     id?: SortOrder
     fullName?: SortOrder
-    email?: SortOrder
     phone?: SortOrder
     grade?: SortOrder
     location?: SortOrder
@@ -2234,7 +2207,6 @@ export namespace Prisma {
   export type RegistrationMinOrderByAggregateInput = {
     id?: SortOrder
     fullName?: SortOrder
-    email?: SortOrder
     phone?: SortOrder
     grade?: SortOrder
     location?: SortOrder
