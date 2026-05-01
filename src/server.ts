@@ -14,7 +14,6 @@ app.use(express.json());
 // -------------------------------------------------------------------------
 const registrationSchema = z.object({
   fullName: z.string().trim().min(2, "Please enter your full name").max(100),
-  email: z.string().trim().email("Enter a valid email").max(255),
   phone: z.string().trim().min(7, "Enter a valid phone number").max(20),
   grade: z.enum(["9", "10", "11", "12"], { message: "Select a grade" }),
   subjects: z
@@ -46,16 +45,8 @@ app.post("/api/register", async (req: Request, res: Response) => {
       return res.status(400).json({ errors: formattedErrors });
     }
 
-    const {
-      fullName,
-      email,
-      phone,
-      grade,
-      subjects,
-      address,
-      location,
-      message,
-    } = parsedBody.data;
+    const { fullName, phone, grade, subjects, address, location, message } =
+      parsedBody.data;
 
     // Check if the email has already registered
     const existingRegistration = await prisma.registration.findUnique({
@@ -64,7 +55,7 @@ app.post("/api/register", async (req: Request, res: Response) => {
 
     if (existingRegistration) {
       return res.status(400).json({
-        errors: { email: "This email address is already registered." },
+        errors: { phone: "This phone address is already registered." },
       });
     }
 
