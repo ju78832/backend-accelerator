@@ -1,0 +1,50 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider   = "prisma-client-js"
+  output     = "../src/generated/prisma"
+  engineType = "binary"
+}
+
+enum Grade {
+  G9  @map("9")
+  G10 @map("10")
+  G11 @map("11")
+  G12 @map("12")
+}
+
+enum Location {
+  Baskhari
+  Tanda
+  Nyori
+  Hyderabad
+  Pune
+  Online
+}
+
+enum Subject {
+  Mathematics
+  Physics
+  Chemistry
+  Biology
+  English
+  ComputerScience @map("Computer Science")
+}
+
+model Registration {
+  id        String    @id @default(uuid())
+  fullName  String
+  email     String    @unique
+  phone     String
+  grade     Grade
+  location  Location
+  subjects  Subject[] // Supported natively in PostgreSQL
+  address   String
+  message   String?
+  createdAt DateTime  @default(now())
+
+  @@map("registrations")
+}
