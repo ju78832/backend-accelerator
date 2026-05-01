@@ -2,11 +2,12 @@
   "name": "collider-academy-backend",
   "version": "1.0.0",
   "description": "Backend registration service for Collider Academy Admissions 2026",
-  "main": "dist/index.js",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
+    "build": "npm run prisma:generate",
+    "vercel-build": "npm run build",
+    "start": "tsx src/server.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
   },
@@ -19,6 +20,9 @@
   ],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@prisma/client": "^5.22.0",
     "cors": "^2.8.5",
